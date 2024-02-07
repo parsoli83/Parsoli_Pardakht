@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Symbol</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            <td>{{ looked['name']}}</td>
+            <td>{{ looked['price']}}</td>
+            <td>{{ looked['symbol']}}</td>
+        </tr>
+        
+        <!-- TODO: Loop through the database entries to display them in this table -->
+    </tbody>
+</table>
+
+{% endblock %}

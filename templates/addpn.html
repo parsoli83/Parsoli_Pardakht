@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block main %}
+    <form action="/addpn" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="text" name="phone_number" placeholder="Phone Number" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+{% endblock %}
+
+<!--
+
+CREATE TABLE users (
+id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+username TEXT NOT NULL,
+hash TEXT NOT NULL, 
+email TEXT NOT NULL,
+balance INTEGER NOT NULL DEFAULT 10000);
+CREATE TABLE cards(
+owner_id  INTEGER NOT NULL,
+card  TEXT NOT NULL,
+pass  TEXT NOT NULL,
+cash  INTEGER NOT NULL DEFAULT 10000 );
+CREATE TABLE pn (
+user_id INTEGER NOT NULL,
+phone_number  TEXT NOT NULL,
+charge  INTEGER NOT NULL );
+CREATE TABLE history (
+    trans_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    type  TEXT NOT NULL,
+    sender TEXT NOT NULL,
+    reciever TEXT NOT NULL,
+    amount NUMERIC NOT NULL
+);
+
+-->

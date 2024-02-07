@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block main %}
+<h2 style="color:Red;text-align:center;font:ariel">Cards</h2>
+<div class="d-flex flex-row flex-nowrap overflow-auto">
+    <h2 class="font-weight-light"></h2>
+    <div class="d-flex flex-row flex-nowrap">
+        {% for i in range(cards| length) %}
+            <div class="card card-body">
+                <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                    <div class="card-header">{{cards[i]["card"]}}</div>
+                    <div class="card-body">
+                    <h5 class="card-title">{{cards[i]["cash"]}} rial</h5>
+                </div>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+<h2 style="color:Red;text-align:center;font:ariel">History</h2>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Reciever</th>
+        <th scope="col">Sender</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in range(history| length) %}
+            <tr>
+                <td>{{history[i]["type"]}}</td>
+                <td>{{history[i]["sender"]}}</td>
+                <td>{{history[i]["reciever"]}}</td>
+                <td>{{history[i]["amount"]}}</td>
+            </tr>
+        {% endfor %}
+      
+    </tbody>
+</table>
+{% endblock %}
+
+
+
+
+<!--
+
+
+
+
+<table class = "table">
+        <thead class = "thead light">
+            <tr>
+                <th scope = "col">Symbol</th>
+                <th scope = "col">Shares</th>
+                <th scope = "col">Current Price</th>
+                <th scope = "col">Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            
+                {% for i in range(properties| length) %}
+                    <tr>
+                        <td scope="row">0</td>
+                        <td>{{ owned_shares[i]}}</td>
+                        <td>{{ properties[i][0]}}</td>
+                        <td>{{ properties[i][1]}}</td>
+                        <td>{{ properties[i][-1]}}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <th scope="row">0</th>
+                    <td>{{share_price}}</td>
+                    <td>{{0}}</td>
+                    <td>{{0}}</td>
+                    <td>{{sum}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">0</th>
+                    <td>{{cash_price}}</td>
+                    <td>{{0}}</td>
+                    <td>{{0}}</td>
+                    <td>{{cash}}</td>
+                </tr>
+            
+        </tbody>
+    </table>
+-->

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Action</th>
+                <th>Price</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            
+                {% for dict in l_all %}
+                    <tr>
+                        <td>{{ dict["symbol"]}}</td>
+                        <td>{{dict["shares"]}}</td>
+                        <td>{{dict["action"]}}</td>
+                        <td>{{dict["price"]}}</td>
+                        <td>{{dict["time"]}}</td>
+                    </tr>
+                {% endfor %}
+            <!-- TODO: Loop through the database entries to display them in this table -->
+        </tbody>
+    </table>
+{% endblock %}

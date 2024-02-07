@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    
+
+{% endblock %}
+
+{% block main %}
+<form action="/charge" method="post">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Number</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01" name="phone_number">
+            <option selected>Choose...</option>
+            {% for i in range(l_pn|length) %}
+                <option value={{i}}>{{l_pn[i]["phone_number"]}}</option>
+            {% endfor %}
+        </select>
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Card</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01" name="card">
+            <option selected>Choose...</option>
+            {% for i in range(l_cards|length) %}
+                <option value={{i}}>{{l_cards[i]["card"]}}</option>
+            {% endfor %}
+        </select>
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="text" name="amount" placeholder="Amount" type="text">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+{% endblock %}
+
+

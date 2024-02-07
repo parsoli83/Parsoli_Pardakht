@@ -1,75 +1,12 @@
-
+from email_ver import email_ver
 import os
 from time import time
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
+from helpers import apology, login_required
 import re
-import csv
-import datetime
-import pytz
-import requests
-import subprocess
-import urllib
-import uuid
-from functools import wraps
-import smtplib
-from email.message import *
-from random import randint
-
-
-def email_ver(user_email):
-    def random_pass(num = "",depth = 4):
-        if depth==0:
-            return num
-        return random_pass(num+str(randint(1,9)),depth-1)
-    
-    my_email = "parsoli.pardakht@gmail.com"
-    my_pass = "kcks uqmv dbha ytyx"
-    password = random_pass()
-    msg = EmailMessage()
-    msg["to"] = user_email
-    msg["from"] = my_email
-    msg["subject"] = "Password"
-    msg.set_content(password)
-    with smtplib.SMTP_SSL("smtp.gmail.com",465) as current:
-        current.login(my_email,my_pass)
-        current.send_message(msg)
-    return password
-
-
-
-
-def apology(message, code=400):
-    """Render message as an apology to user."""
-    def escape(s):
-        """
-        Escape special characters.
-
-        https://github.com/jacebrowning/memegen#special-characters
-        """
-        for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
-                         ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
-            s = s.replace(old, new)
-        return s
-    return render_template("apology.html", top=code, bottom=escape(message)), code
-
-
-def login_required(f):
-    """
-    Decorate routes to require login.
-
-    http://flask.pocoo.org/docs/0.12/patterns/viewdecorators/
-    """
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if session.get("user_id") is None:
-            return redirect("/login")
-        return f(*args, **kwargs)
-    return decorated_function
-
-
 
 def validate_email(email):
     pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'

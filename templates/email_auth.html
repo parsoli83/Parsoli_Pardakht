@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    
+
+{% endblock %}
+
+{% block main %}
+    <form action="/email_auth" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="email_ver" placeholder="verification code" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+{% endblock %}

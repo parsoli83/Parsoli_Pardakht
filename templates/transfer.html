@@ -25,9 +25,12 @@
                 <option value={{i}}>{{l_cards[i]["card"]}}</option>
             {% endfor %}
         </select>
-        
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="text" name="amount" placeholder="Amount" type="text">
-        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>   
+    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="text" name="amount" placeholder="Amount" type="text">
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="password" name="ps" placeholder="Card Pass" type="password">
     </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+    
 </form>
 {% endblock %}
